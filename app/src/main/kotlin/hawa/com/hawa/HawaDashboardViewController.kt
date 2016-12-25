@@ -17,7 +17,7 @@ class HawaDashboardViewController : AppCompatActivity(), NavigationView.OnNaviga
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hawa_dashboard_view)
+        setContentView(R.layout.hawa_dashboard_view)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
@@ -48,7 +48,7 @@ class HawaDashboardViewController : AppCompatActivity(), NavigationView.OnNaviga
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.hawa_dashboard_view_controller, menu)
+        menuInflater.inflate(R.menu.hawa_dashboard_view, menu)
         return true
     }
 
@@ -70,13 +70,15 @@ class HawaDashboardViewController : AppCompatActivity(), NavigationView.OnNaviga
         // Handle navigation view item clicks here.
         val id = item.itemId
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.study) {
+            // show topics
+            // questions and
+            // answers stuff
+        } else if (id == R.id.old) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.practise) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.profile) {
 
         } else if (id == R.id.nav_share) {
 
