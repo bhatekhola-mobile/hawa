@@ -1,4 +1,24 @@
 
+install buildToolVersion 25
+
+```
+ANDROID_HOME=/Users/prayagupd/Library/Android/sdk/
+$ANDROID_HOME/tools/android update sdk --no-ui --filter build-tools-25.0.2,android-25,extra-android-m2repository
+```
+
+otherwise, you will see an error
+
+```
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+A problem occurred configuring project ':app'.
+> You have not accepted the license agreements of the following SDK components:
+  [Android SDK Platform 25].
+  Before building your project, you need to accept the license agreements and complete the installation of the missing components using the Android Studio SDK Manager.
+  Alternatively, to learn how to transfer the license agreements from one workstation to another, go to http://d.android.com/r/studio-ui/export-licenses.html
+```
+
 ```
 $ ./gradlew --version
 
@@ -41,5 +61,5 @@ run
 /Users/prayagupd/Library/Android/sdk/tools/emulator -netdelay none -netspeed full -avd Nexus_4_API_22
 adb push /Users/prayagupd/divine-projects/hawa/app/build/outputs/apk/app-debug.apk /data/local/tmp/hawa.com.hawa
 adb shell pm install -r "/data/local/tmp/hawa.com.hawa"
-adb shell am start -n "hawa.com.hawa/hawa.com.hawa.HawaDashboardViewController" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
+adb shell am start -n "com.hawa/com.hawa.HawaDashboardViewController" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
 ```

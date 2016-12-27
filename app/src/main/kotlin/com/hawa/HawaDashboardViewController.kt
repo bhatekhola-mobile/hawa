@@ -18,7 +18,7 @@ import android.widget.FrameLayout
 import android.widget.SlidingDrawer
 import com.hawa.R
 
-class HawaDashboardViewController : AppCompatActivity() {
+class HawaDashboardViewController : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class HawaDashboardViewController : AppCompatActivity() {
         openCloseToggle.syncState()
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView
-        navigationView.setNavigationItemSelectedListener { onNavigationItemSelected(it) }
+        navigationView.setNavigationItemSelectedListener(this)
 
     }
 
@@ -84,7 +84,7 @@ class HawaDashboardViewController : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun onNavigationItemSelected(item: MenuItem): Boolean {
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val id = item.itemId
         Log.i("HawaDashboardView", ""+id)
