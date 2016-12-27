@@ -1,5 +1,6 @@
 package hawa.com.hawa
 
+import android.app.Fragment
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
@@ -75,7 +76,9 @@ class HawaDashboardViewController : AppCompatActivity(), NavigationView.OnNaviga
             // questions and
             // answers stuff
         } else if (id == R.id.old) {
-
+            val fragment = OldPapersFragment()
+            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit()
+            item.isChecked = true
         } else if (id == R.id.practise) {
 
         } else if (id == R.id.profile) {
