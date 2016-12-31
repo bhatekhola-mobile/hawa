@@ -8,6 +8,12 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
     <include
         layout="@layout/app_bar_hawa_dashboard_view"
         android:layout_width="match_parent"
@@ -21,11 +27,5 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_hawa_dashboard_view"
         app:menu="@menu/hawa_dashboard_view_drawer" />
-
-    <FrameLayout
-        android:id="@+id/frame_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
 
 </android.support.v4.widget.DrawerLayout>

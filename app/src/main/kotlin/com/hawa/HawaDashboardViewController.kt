@@ -96,7 +96,8 @@ class HawaDashboardViewController : AppCompatActivity(), NavigationView.OnNaviga
             // show topics
             // questions and
             // answers stuff
-            switchView = StudyView()
+            switchView = StudyFragmentView()
+            item.isChecked = true
 
             fragmentManager.beginTransaction()
                     .replace(R.id.frame_container, switchView).commit()
@@ -120,11 +121,10 @@ class HawaDashboardViewController : AppCompatActivity(), NavigationView.OnNaviga
 
     class StudyView : Fragment() {
 
-        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View {
+        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle?): View {
 
             val rootView = inflater.inflate(R.layout.study_view, container, false)
-
-            return super.onCreateView(inflater, container, savedInstanceState)
+            return rootView
         }
     }
 

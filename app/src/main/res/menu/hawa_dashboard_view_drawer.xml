@@ -10,11 +10,11 @@
         <item
             android:id="@+id/old"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Old" />
+            android:title="Old Questions" />
         <item
             android:id="@+id/practise"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Practise" />
+            android:title="Practice" />
         <item
             android:id="@+id/profile"
             android:icon="@drawable/ic_menu_manage"
