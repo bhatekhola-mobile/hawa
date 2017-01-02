@@ -18,7 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hawa.StudyFragmentView"></activity>
+        <activity android:name=".StudyFragmentView" />
+        <activity
+            android:name=".StudyQuestionsViewController"
+            android:label="@string/title_activity_study_questions_view_controller"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

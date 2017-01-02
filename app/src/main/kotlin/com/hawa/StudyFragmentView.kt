@@ -1,6 +1,7 @@
 package com.hawa
 
 import android.app.Fragment
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -20,6 +21,15 @@ class StudyFragmentView : Fragment() {
 
         val rootView = inflater.inflate(R.layout.study_view, container, false)
         renderTopics(rootView)
+
+        topicsUi.setOnItemClickListener { adapterView, view, postion, id ->
+            val selectedTopic = topicsUi.getItemAtPosition(postion) as Topic
+            val intent = Intent(context, StudyQuestionsViewController::class.java)
+            //FIXME context needs sdkVersion to be 23, which means won't run on earlier version
+            // like 11.
+            intent.putExtra("topic", selectedTopic)
+            startActivity(intent)
+        }
         return rootView
     }
 
@@ -29,7 +39,14 @@ class StudyFragmentView : Fragment() {
         topicsUi.adapter = topicStream
 
         Thread(null, Runnable {
-            topics = mutableListOf(Topic("History", 40), Topic("Geography", 60))
+            topics = mutableListOf(Topic("History", 40),
+                    Topic("Geography", 60),
+                    Topic("Entertainment, Literature", 40),
+                    Topic("Culture", 56),
+                    Topic("Education", 89),
+                    Topic("Health", 77),
+                    Topic("Economy", 76),
+                    Topic("Politics", 54))
             Handler(Looper.getMainLooper()).post({
                 if(topics.isNotEmpty()) {
                     topics.forEach { topicStream.add(it) }
