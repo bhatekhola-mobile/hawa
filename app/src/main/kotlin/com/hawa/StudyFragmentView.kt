@@ -29,7 +29,7 @@ class StudyFragmentView : Fragment() {
         topicsUi.adapter = topicStream
 
         Thread(null, Runnable {
-            topics = mutableListOf(Topic("History", 1), Topic("Geography", 2))
+            topics = mutableListOf(Topic("History", 40), Topic("Geography", 60))
             Handler(Looper.getMainLooper()).post({
                 if(topics.isNotEmpty()) {
                     topics.forEach { topicStream.add(it) }
