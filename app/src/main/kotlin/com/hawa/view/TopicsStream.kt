@@ -1,4 +1,4 @@
-package com.hawa
+package com.hawa.view
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import com.hawa.R
 import com.hawa.domain.Topic
 
 import java.util.ArrayList

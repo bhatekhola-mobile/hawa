@@ -1,4 +1,4 @@
-package com.hawa
+package com.hawa.view
 
 import android.app.Fragment
 import android.content.Intent
@@ -9,7 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import com.hawa.R
+import com.hawa.view.TopicsStream
 import com.hawa.domain.Topic
+import com.hawa.view.StudyQuestionsViewController
 import java.util.*
 
 class StudyFragmentView : Fragment() {

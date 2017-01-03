@@ -1,4 +1,4 @@
-package com.hawa
+package com.hawa.view
 
 import android.os.Bundle
 import android.os.Handler
@@ -13,6 +13,8 @@ import com.hawa.domain.Question
 import com.hawa.domain.Topic
 import java.util.*
 import android.widget.ArrayAdapter
+import com.hawa.view.QuestionsStream
+import com.hawa.R
 import com.hawa.domain.Answer
 
 
@@ -59,9 +61,20 @@ class StudyQuestionsViewController : AppCompatActivity() {
                                     mutableListOf(Answer("July 28, 1914",
                                             "http://www.history.com/topics/world-war-i/outbreak-of-world-war-i")),
                                     mutableListOf(Answer("November 11, 1918", "")),
-                                    "The total number of military and civilian casualties in World War I was more than 38 million"))
+                                    "The total number of military and civilian casualties in World War I was more than 38 million"),
+                            Question("What was the motto of the arms of England during the reigns of Elizabeth I and Anne?",
+                                    mutableListOf(Answer("Semper Eadem",
+                                            "Semper Eadem means 'always the same'. It was a phrase used by Elizabeth's mother, Queen Anne Boleyn, and was re-adopted by Anne when she was queen. Anne's earlier Stuart relatives on the English throne used the motto Dieu et Mon Droit")),
+                                    mutableListOf(Answer("November 11, 1918", "")), ""),
+                            Question("When was the Euro first used as a unit of currency?",
+                                    mutableListOf(Answer("1999", "")),
+                                    mutableListOf(Answer("November 11, 1918", "")), ""),
+                            Question("French aviator Louis Bleriot was the first to do what in an aeroplane on 25 July 1909?",
+                                    mutableListOf(Answer("Cross the English Channel", "")),
+                                    mutableListOf(Answer("", "")), "")
+                    )
             Handler(Looper.getMainLooper()).post({
-                if(questionsData.isNotEmpty()) {
+                if (questionsData.isNotEmpty()) {
                     questionsData.forEach { questionsStream.add(it) }
                     questionsStream.notifyDataSetChanged()
                     studyQuestionsUi.visibility = View.VISIBLE

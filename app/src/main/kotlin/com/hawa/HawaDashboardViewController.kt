@@ -17,6 +17,7 @@ import android.view.*
 import android.widget.FrameLayout
 import android.widget.SlidingDrawer
 import com.hawa.R
+import com.hawa.view.StudyFragmentView
 
 class HawaDashboardViewController : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
