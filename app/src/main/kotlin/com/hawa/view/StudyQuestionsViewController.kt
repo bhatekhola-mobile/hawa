@@ -9,13 +9,11 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ListView
+import com.hawa.R
+import com.hawa.domain.Answer
 import com.hawa.domain.Question
 import com.hawa.domain.Topic
 import java.util.*
-import android.widget.ArrayAdapter
-import com.hawa.view.QuestionsStream
-import com.hawa.R
-import com.hawa.domain.Answer
 
 
 class StudyQuestionsViewController : AppCompatActivity() {

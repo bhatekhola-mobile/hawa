@@ -7,4 +7,4 @@ import java.io.Serializable
  * on 12/31/16.
  */
 
-class Topic(internal var title: String, internal var questions: Int) : Serializable
+class Topic(var title: String, var questions: Int) : Serializable

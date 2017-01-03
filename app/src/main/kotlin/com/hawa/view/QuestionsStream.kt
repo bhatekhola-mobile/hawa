@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.hawa.R
 import com.hawa.domain.Question
-import com.hawa.domain.Topic
 
 import java.util.ArrayList
 
