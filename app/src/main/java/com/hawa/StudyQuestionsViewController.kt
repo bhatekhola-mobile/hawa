@@ -1,13 +1,25 @@
 package com.hawa
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
+import android.widget.ListView
+import com.hawa.domain.Question
+import com.hawa.domain.Topic
+import java.util.*
+import android.widget.ArrayAdapter
+import com.hawa.domain.Answer
+
 
 class StudyQuestionsViewController : AppCompatActivity() {
+
+    lateinit var studyQuestionsUi: ListView
+    var questionsData: List<Question> = ArrayList<Question>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +32,41 @@ class StudyQuestionsViewController : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+
+        val topic = intent.getSerializableExtra("topic") as Topic
+        this.title = topic.title
+
+        studyQuestionsUi = findViewById(R.id.studyQuestions) as ListView
+
+        renderTopics()
     }
 
+
+    private fun renderTopics() {
+        val questionsStream = QuestionsStream(applicationContext, questionsData)
+        studyQuestionsUi.adapter = questionsStream
+
+        Thread(null, Runnable {
+            questionsData =
+                    mutableListOf(Question("Who is the first PM of USA?",
+                            mutableListOf(Answer("George Washington",
+                                    "George Washington was an American soldier and statesman who " +
+                                            "served as the first President of the United States from 1789 to 1797.")),
+                            mutableListOf(),
+                            "USA has 35 PMs so far."),
+
+                            Question("World War I began in which year?",
+                                    mutableListOf(Answer("July 28, 1914",
+                                            "http://www.history.com/topics/world-war-i/outbreak-of-world-war-i")),
+                                    mutableListOf(Answer("November 11, 1918", "")),
+                                    "The total number of military and civilian casualties in World War I was more than 38 million"))
+            Handler(Looper.getMainLooper()).post({
+                if(questionsData.isNotEmpty()) {
+                    questionsData.forEach { questionsStream.add(it) }
+                    questionsStream.notifyDataSetChanged()
+                    studyQuestionsUi.visibility = View.VISIBLE
+                }
+            })
+        }).start()
+    }
 }

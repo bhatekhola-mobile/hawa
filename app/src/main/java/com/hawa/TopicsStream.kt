@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import com.hawa.domain.Topic
 
 import java.util.ArrayList
 
@@ -26,7 +27,7 @@ class TopicsStream(context: Context, objects: List<Topic>) : ArrayAdapter<Topic>
         var topicsUi = convertView
 
         if (topicsUi == null) {
-            topicsUi = layoutInflater.inflate(R.layout.study_list_view, parent, false)
+            topicsUi = layoutInflater.inflate(R.layout.study_list_template, parent, false)
 
             val holder = TopicViewHolder(topicsUi.findViewById(R.id.topicTitle) as TextView,
                     topicsUi.findViewById(R.id.topicQuestions) as TextView)

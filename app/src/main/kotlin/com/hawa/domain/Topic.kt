@@ -1,4 +1,4 @@
-package com.hawa
+package com.hawa.domain
 
 import java.io.Serializable
 

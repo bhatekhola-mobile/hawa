@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import com.hawa.domain.Topic
 import java.util.*
 
 class StudyFragmentView : Fragment() {
@@ -20,6 +21,9 @@ class StudyFragmentView : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val rootView = inflater.inflate(R.layout.study_view, container, false)
+
+        topicsUi = rootView.findViewById(R.id.topics) as ListView
+
         renderTopics(rootView)
 
         topicsUi.setOnItemClickListener { adapterView, view, postion, id ->
@@ -34,7 +38,6 @@ class StudyFragmentView : Fragment() {
     }
 
     private fun renderTopics(rootView: View) {
-        topicsUi = rootView.findViewById(R.id.topics) as ListView
         val topicStream = TopicsStream(this.activity, topics)
         topicsUi.adapter = topicStream
 

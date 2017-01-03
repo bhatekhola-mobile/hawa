@@ -118,14 +118,4 @@ class HawaDashboardViewController : AppCompatActivity(), NavigationView.OnNaviga
         drawer.closeDrawer(GravityCompat.START)
         return true
     }
-
-    class StudyView : Fragment() {
-
-        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle?): View {
-
-            val rootView = inflater.inflate(R.layout.study_view, container, false)
-            return rootView
-        }
-    }
-
 }
